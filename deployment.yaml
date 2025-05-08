@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gani
-          image: gani1990/petclinic-working:latest
+          image: gani1990/petclinic-working:1.0.0-49
           resources:
             limits:
               memory: "512Mi"
