@@ -3,6 +3,7 @@ pipeline {
     environment {
               APP_NAME = "petclinic-working"
               GIT_USERNAME = "gani1990"
+              GIT_TOKEN = credentials("github-token")
     }
 
     stages {
