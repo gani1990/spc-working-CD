@@ -41,7 +41,7 @@ pipeline {
 
                         git add .
                         git commit -m "Automated commit from Jenkins" || echo "Nothing to commit"
-                        git push origin main
+                        git push git@github.com:gani1990/spc-working-CD.git main
                     '''
                 }
             }
