@@ -31,13 +31,12 @@ pipeline {
         stage("Push the changed deployment file to Git") {
             steps {
                 sh """
-                   git config --global user.name "$GIT_USERNAME"
+                   git config --global user.name "gani1990"
                    git config --global user.email "gani87122@gmail.com"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github-token', passwordVariable: 'github-token')]) {
-                  sh "git remote set-url origin https://$GIT_USERNAME:$github-token@github.com/gani1990/spc-working-CD.git"
+                withCredentials([gitUsernamePassword(credentialsId: 'github-token', gitToolName: 'Default')]) {
                   sh "git push https://github.com/gani1990/spc-working-CD main"
                 }
             }
