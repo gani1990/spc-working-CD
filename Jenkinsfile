@@ -36,7 +36,7 @@ pipeline {
                    git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github-token', gitToolName: 'Default')]) {
-                  sh "https://github.com/gani1990/spc-working-CD main"
+                   sh "git push origin main"
                 }
             }
         }
