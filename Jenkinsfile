@@ -31,14 +31,18 @@ pipeline {
 
      stage("Push the changed deployment file to Git") {
             steps {
-                sh """
-                   git config --global user.name "gani1990"
-                   git config --global user.email "gani87122@gmail.com"
-                   git add deployment.yaml
-                   git commit -m "Updated Deployment Manifest"
-                """
-                withCredentials([gitUsernamePassword(credentialsId: 'github-token', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/gani1990/spc-working-CD main"
+                sshagent(credentials: ['github-ssh']) {
+                    sh '''
+                        git config user.name "gani1990"
+                        git config user.email "gani87122@gmail.com"
+
+                        # Set SSH remote
+                        git remote set-url origin git@github.com:gani1990/spc-working-CD.git
+
+                        git add .
+                        git commit -m "Automated commit from Jenkins" || echo "Nothing to commit"
+                        git push origin main
+                    '''
                 }
             }
         }
