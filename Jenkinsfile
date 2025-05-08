@@ -36,7 +36,7 @@ pipeline {
                         git config user.email "gani87122@gmail.com"
 
                         # Update the remote URL with token auth
-                        git remote set-url origin https://$GIT_USERNAME:GIT_TOKEN@github.com/gani1990/spc-working-CD.git
+                        git remote set-url origin https://$GIT_USERNAME:$GIT_TOKEN@github.com/gani1990/spc-working-CD.git
 
                         # Add changes, commit, and push
                         git add .
