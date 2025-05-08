@@ -13,7 +13,7 @@ pipeline {
 
         stage("Checkout from SCM") {
                steps {
-                   git branch: 'main', credentialsId: 'github', url: 'https://github.com/gani1990/spc-working-CD'
+                   git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/gani1990/spc-working-CD'
                }
         }
 
