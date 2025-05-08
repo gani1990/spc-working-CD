@@ -33,6 +33,8 @@ pipeline {
             steps {
                 sshagent(credentials: ['github-ssh']) {
                     sh '''
+                        mkdir -p ~/.ssh
+                        ssh-keyscan github.com >> ~/.ssh/known_hosts
                         git config user.name "gani1990"
                         git config user.email "gani87122@gmail.com"
 
