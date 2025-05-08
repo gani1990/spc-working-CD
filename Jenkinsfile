@@ -37,7 +37,7 @@ pipeline {
                    git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github-token', passwordVariable: 'github-token')]) {
-                  sh "git remote set-url origin https://$GIT_USERNAME:$github-token@github.com/gani1990/spc-working-CD.git
+                  sh "git remote set-url origin https://$GIT_USERNAME:$github-token@github.com/gani1990/spc-working-CD.git"
                   sh "git push https://github.com/gani1990/spc-working-CD main"
                 }
             }
