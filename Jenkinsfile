@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "myagent" }
+    agent any
     environment {
               APP_NAME = "petclinic-working"
               //GIT_USERNAME = "gani1990"
